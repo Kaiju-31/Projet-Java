@@ -23,6 +23,7 @@ public class ApartmentDto {
 
     private String complexType;
 
+
     public Integer getBedding() {
         return bedding;
     }
