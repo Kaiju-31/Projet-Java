@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 public class Apartment {
 //
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     private Integer bedding;
@@ -25,7 +25,7 @@ public class Apartment {
 
     private Float price;
 
-    private LocalDate booking;
+//    private LocalDate booking;
 
     public Long getId() {
         return id;
@@ -71,11 +71,11 @@ public class Apartment {
         this.price = price;
     }
 
-    public LocalDate getBooking() {
-        return booking;
-    }
-
-    public void setBooking(LocalDate booking) {
-        this.booking = booking;
-    }
+//    public LocalDate getBooking() {
+//        return booking;
+//    }
+//
+//    public void setBooking(LocalDate booking) {
+//        this.booking = booking;
+//    }
 }
