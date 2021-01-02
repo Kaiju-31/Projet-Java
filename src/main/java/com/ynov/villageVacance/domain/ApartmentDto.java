@@ -5,15 +5,9 @@
 
 package com.ynov.villageVacance.domain;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
-
-@Entity
-public class Apartment {
-//
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class ApartmentDto {
 
     private Integer bedding;
 
@@ -27,9 +21,7 @@ public class Apartment {
 
     private LocalDate booking;
 
-    public Long getId() {
-        return id;
-    }
+    private String complexType;
 
     public Integer getBedding() {
         return bedding;
@@ -77,5 +69,23 @@ public class Apartment {
 
     public void setBooking(LocalDate booking) {
         this.booking = booking;
+    }
+
+    public String getComplexType() {
+        return complexType;
+    }
+
+    public void setComplexType(String complexType) {
+        this.complexType = complexType;
+    }
+
+    public ApartmentDto(Integer bedding, Integer area, Boolean babyEquipments, Boolean airConditioner, Float price, LocalDate booking, String complexType) {
+        this.bedding = bedding;
+        this.area = area;
+        this.babyEquipments = babyEquipments;
+        this.airConditioner = airConditioner;
+        this.price = price;
+        this.booking = booking;
+        this.complexType = complexType;
     }
 }

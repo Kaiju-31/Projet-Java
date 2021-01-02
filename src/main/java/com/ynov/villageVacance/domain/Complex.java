@@ -1,19 +1,32 @@
+/*
+ * Copyright (c) 2021.
+ * Rodolf Chotard
+ */
+
 package com.ynov.villageVacance.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+
 
 @Entity
-public class Complex implements Serializable {
+public class Complex {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
 
-//    @Column(name = "COUNTRY_ID")
-//    @OneToOne
-//    @JoinColumn(name = "ID")
-    private String country_id;
+    @OneToMany
+    @JoinColumn(name = "complex_id")
+    private Set<Apartment> apartments;
+
+    public Set<Apartment> getApartments() {
+        return apartments;
+    }
+
+    public void setApartments(Set<Apartment> apartments) {
+        this.apartments = apartments;
+    }
 
     private String type;
 
@@ -42,16 +55,16 @@ public class Complex implements Serializable {
     @Enumerated(EnumType.STRING)
     private Location location;
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     public Long getId() {
         return id;
-    }
-
-    public String getCountry_id() {
-        return country_id;
-    }
-
-    public void setCountry_id(String country_id) {
-        this.country_id = country_id;
     }
 
     public String getType() {
