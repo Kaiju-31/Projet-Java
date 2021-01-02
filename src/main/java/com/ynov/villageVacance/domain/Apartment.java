@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Apartment implements Serializable {
-
+//
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
