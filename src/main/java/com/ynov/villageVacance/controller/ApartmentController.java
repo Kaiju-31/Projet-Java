@@ -85,4 +85,15 @@ public class ApartmentController {
         return apartments;
     }
 
+    @GetMapping("/apartment-mountain")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Apartment> findApartmentAtMountain() {
+        List<Apartment> apartments = new ArrayList<>();
+        List<Complex> complexes = complexService.findApartmentAtMountain();
+        for (Complex complex : complexes) {
+            apartments.addAll(complex.getApartments());
+        }
+        return apartments;
+    }
+
 }

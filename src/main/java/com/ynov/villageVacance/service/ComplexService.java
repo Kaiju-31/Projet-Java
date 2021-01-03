@@ -68,4 +68,8 @@ public class ComplexService {
     public List<Complex> findApartmentWithSwimmingpool() {
         return complexRepository.findApartmentWithSwimmingpool();
     }
+
+    public List<Complex> findApartmentAtMountain() {
+        return complexRepository.findApartmentAtMountain();
+    }
 }
