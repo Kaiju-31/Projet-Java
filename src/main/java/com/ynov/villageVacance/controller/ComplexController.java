@@ -8,10 +8,8 @@ package com.ynov.villageVacance.controller;
 import com.ynov.villageVacance.domain.Complex;
 import com.ynov.villageVacance.service.ComplexService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +33,23 @@ public class ComplexController {
     @ResponseStatus(HttpStatus.OK)
     public void generateComplexs() {
         complexService.generateComplexs();
+    }
+
+    @PostMapping("/complex")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Complex createComplex(@RequestBody Complex complex) {
+        return complexService.createComplex(complex);
+    }
+
+    @PutMapping("/complex")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Complex> updateComplex(@RequestBody Complex complex) {
+        return ResponseEntity.ok().body(complexService.updateComplex(complex, complex.getId()));
+    }
+
+    @DeleteMapping("/complex/delete/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteComplex(@PathVariable Long id) {
+        complexService.deleteComplex(id);
     }
 }

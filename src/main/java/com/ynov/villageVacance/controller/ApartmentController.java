@@ -40,15 +40,16 @@ public class ApartmentController {
         return apartmentService.createApartment(apartment);
     }
 
+    @PutMapping("/apartment")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Apartment> updateApartment(@RequestBody Apartment apartment) {
+        return ResponseEntity.ok().body(apartmentService.updateApartment(apartment, apartment.getId()));
+    }
+
     @DeleteMapping("/apartment/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteApartment(@PathVariable Long id) {
         apartmentService.deleteApartment(id);
     }
 
-    @PutMapping("/apartment")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Apartment> updateApartment(@RequestBody Apartment apartment) {
-        return ResponseEntity.ok().body(apartmentService.updateApartment(apartment, apartment.getId()));
-    }
 }

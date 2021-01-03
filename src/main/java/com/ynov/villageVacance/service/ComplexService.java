@@ -34,6 +34,21 @@ public class ComplexService {
         complex.setWifi(true);
         complex.setSwimmingPool(true);
         complex.setType("Village Vacance");
+        complex.setCountry("France");
         complexRepository.save(complex);
+    }
+
+    public Complex createComplex(Complex complex) {
+        return complexRepository.save(complex);
+    }
+
+    public Complex updateComplex(Complex complex, Long id) {
+        complexRepository.findComplexById(id);
+        return complexRepository.save(complex);
+    }
+
+    public void deleteComplex(Long id) {
+        Complex complex = complexRepository.findComplexById(id);
+        complexRepository.delete(complex);
     }
 }
