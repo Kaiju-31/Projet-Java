@@ -19,6 +19,9 @@ public interface ComplexRepository extends JpaRepository<Complex, Long> {
     @Query(value = "SELECT c FROM Complex c WHERE c.id = :id")
     Complex findComplexById(Long id);
 
+    @Query(value = "SELECT c FROM Complex c WHERE c.id = :id")
+    List<Complex> getComplexById(Long id);
+
     @Query(value = "SELECT c FROM Complex c WHERE c.country = :country")
     List<Complex> findComplexByCountry(String country);
 

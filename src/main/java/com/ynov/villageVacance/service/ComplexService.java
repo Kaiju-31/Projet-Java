@@ -24,6 +24,10 @@ public class ComplexService {
         return complexRepository.findAll();
     }
 
+    public List<Complex> getComplexById(Long id) {
+        return complexRepository.getComplexById(id);
+    }
+
     public void generateComplexs() {
         Complex complex = new Complex();
         complex.setAddress("essai");

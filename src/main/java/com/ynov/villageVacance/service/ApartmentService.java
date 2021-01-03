@@ -28,6 +28,10 @@ public class ApartmentService {
         return apartmentRepository.findAll();
     }
 
+    public List<Apartment> getApartmentById(Long id) {
+        return apartmentRepository.getApartmentById(id);
+    }
+
     public void generateApartments() {
         Apartment apartment = new Apartment();
         apartment.setAirConditioner(true);

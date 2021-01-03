@@ -33,6 +33,12 @@ public class ApartmentController {
         return apartmentService.getApartments();
     }
 
+    @GetMapping("/apartment/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Apartment> getApartmentById(Long id) {
+        return apartmentService.getApartmentById(id);
+    }
+
     @GetMapping("/apartment/generate")
     @ResponseStatus(HttpStatus.OK)
     public void generateApartments() {

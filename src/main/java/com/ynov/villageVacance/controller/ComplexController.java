@@ -30,6 +30,12 @@ public class ComplexController {
         return complexService.getComplexs();
     }
 
+    @GetMapping("/complex/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Complex> getComplexById(Long id) {
+        return complexService.getComplexById(id);
+    }
+
     @GetMapping("/complex/generate")
     @ResponseStatus(HttpStatus.OK)
     public void generateComplexs() {
