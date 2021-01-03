@@ -12,6 +12,7 @@ import com.ynov.villageVacance.repository.ComplexRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -39,6 +40,8 @@ public class ApartmentService {
         apartment.setBabyEquipments(true);
         apartment.setBedding(2);
         apartment.setPrice((float) 50);
+        apartment.setBookingStart(LocalDate.of(2021,1,1));
+        apartment.setBookingEnd(LocalDate.of(2021,1,15));
         apartmentRepository.save(apartment);
     }
 

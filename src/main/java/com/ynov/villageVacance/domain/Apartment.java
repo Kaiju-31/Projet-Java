@@ -25,7 +25,9 @@ public class Apartment {
 
     private Float price;
 
-//    private LocalDate booking;
+    private LocalDate bookingStart;
+
+    private LocalDate bookingEnd;
 
     public Long getId() {
         return id;
@@ -71,11 +73,20 @@ public class Apartment {
         this.price = price;
     }
 
-//    public LocalDate getBooking() {
-//        return booking;
-//    }
-//
-//    public void setBooking(LocalDate booking) {
-//        this.booking = booking;
-//    }
+    public LocalDate getBookingStart() {
+        return bookingStart;
+    }
+
+    public void setBookingStart(LocalDate bookingStart) {
+        this.bookingStart = bookingStart;
+    }
+
+    public LocalDate getBookingEnd() {
+        return bookingEnd;
+    }
+
+    public void setBookingEnd(LocalDate bookingEnd) {
+        this.bookingEnd = bookingEnd;
+    }
+
 }
