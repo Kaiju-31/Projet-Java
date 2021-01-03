@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,12 @@ public class ApartmentController {
     @ResponseStatus(HttpStatus.OK)
     public List<Apartment> getApartmentById(Long id) {
         return apartmentService.getApartmentById(id);
+    }
+
+    @GetMapping("/apartment/date")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Apartment> getApartmentByDate(LocalDate bookingStart, LocalDate bookingEnd) {
+        return apartmentService.getApartmentByDate(bookingStart, bookingEnd);
     }
 
     @GetMapping("/apartment/generate")

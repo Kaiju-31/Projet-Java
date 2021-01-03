@@ -9,6 +9,7 @@ import com.ynov.villageVacance.domain.Apartment;
 import com.ynov.villageVacance.domain.Complex;
 import com.ynov.villageVacance.repository.ApartmentRepository;
 import com.ynov.villageVacance.repository.ComplexRepository;
+import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,6 +32,10 @@ public class ApartmentService {
 
     public List<Apartment> getApartmentById(Long id) {
         return apartmentRepository.getApartmentById(id);
+    }
+
+    public List<Apartment> getApartmentByDate(LocalDate bookingstart, LocalDate bookingend) {
+        return apartmentRepository.getApartmentByDate(bookingstart, bookingend);
     }
 
     public void generateApartments() {
