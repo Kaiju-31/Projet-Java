@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 public class Apartment {
 //
-    @Id @GeneratedValue(strategy = GenerationType.TABLE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Integer bedding;

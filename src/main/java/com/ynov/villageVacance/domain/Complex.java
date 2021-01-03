@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 public class Complex {
 
-    @Id @GeneratedValue(strategy = GenerationType.TABLE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToMany

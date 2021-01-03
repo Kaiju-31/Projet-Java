@@ -8,10 +8,7 @@ package com.ynov.villageVacance.controller;
 import com.ynov.villageVacance.domain.Apartment;
 import com.ynov.villageVacance.service.ApartmentService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,4 +33,15 @@ public class ApartmentController {
         apartmentService.generateApartments();
     }
 
+    @PostMapping("/apartment/create/{bedding}/{area}/{babyEquipments}/{airConditioner}/{price}/{complex_id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Apartment createApartment(@PathVariable Integer bedding,@PathVariable Integer area,@PathVariable Boolean babyEquipments,@PathVariable Boolean airConditioner,@PathVariable Float price,@PathVariable Long complex_id) {
+        return apartmentService.createApartment(bedding, area, babyEquipments, airConditioner, price, complex_id);
+    }
+
+    @DeleteMapping("/apartment/delete/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delApartment(@PathVariable Long id) {
+        apartmentService.deleteApartment(id);
+    }
 }
