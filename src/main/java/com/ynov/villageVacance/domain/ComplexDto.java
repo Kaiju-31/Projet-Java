@@ -25,6 +25,8 @@ public class ComplexDto {
 
     private Complex.Location location;
 
+    private String country;
+
 
     public String getType() {
         return type;
@@ -108,5 +110,13 @@ public class ComplexDto {
         this.nursery = nursery;
         this.wifi = wifi;
         this.location = location;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

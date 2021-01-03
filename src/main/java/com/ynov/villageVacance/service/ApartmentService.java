@@ -11,6 +11,7 @@ import com.ynov.villageVacance.repository.ApartmentRepository;
 import com.ynov.villageVacance.repository.ComplexRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -37,19 +38,13 @@ public class ApartmentService {
         apartmentRepository.save(apartment);
     }
 
-    public Apartment createApartment(Integer bedding, Integer area, Boolean babyEquipments, Boolean airConditioner, Float price, Long complex_id) {
-        Complex complex =complexRepository.findComplexById(complex_id);
+    public Apartment createApartment(Apartment apartment) {
+        return apartmentRepository.save(apartment);
+    }
 
-        Apartment apartment = new Apartment();
-        apartment.setAirConditioner(airConditioner);
-        apartment.setArea(area);
-        apartment.setBabyEquipments(babyEquipments);
-        apartment.setBedding(bedding);
-        apartment.setPrice(price);
-        apartmentRepository.save(apartment);
-        complex.getApartments().add(apartment);
-
-        return apartment;
+    public Apartment updateApartment(Apartment apartment, Long id) {
+        apartmentRepository.findApartmentById(id);
+        return apartmentRepository.save(apartment);
     }
 
 

@@ -8,6 +8,7 @@ package com.ynov.villageVacance.controller;
 import com.ynov.villageVacance.domain.Apartment;
 import com.ynov.villageVacance.service.ApartmentService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,15 +34,21 @@ public class ApartmentController {
         apartmentService.generateApartments();
     }
 
-    @PostMapping("/apartment/create/{bedding}/{area}/{babyEquipments}/{airConditioner}/{price}/{complex_id}")
-    @ResponseStatus(HttpStatus.OK)
-    public Apartment createApartment(@PathVariable Integer bedding,@PathVariable Integer area,@PathVariable Boolean babyEquipments,@PathVariable Boolean airConditioner,@PathVariable Float price,@PathVariable Long complex_id) {
-        return apartmentService.createApartment(bedding, area, babyEquipments, airConditioner, price, complex_id);
+    @PostMapping("/apartment")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Apartment createApartment(@RequestBody Apartment apartment) {
+        return apartmentService.createApartment(apartment);
     }
 
     @DeleteMapping("/apartment/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void delApartment(@PathVariable Long id) {
+    public void deleteApartment(@PathVariable Long id) {
         apartmentService.deleteApartment(id);
+    }
+
+    @PutMapping("/apartment")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Apartment> updateApartment(@RequestBody Apartment apartment) {
+        return ResponseEntity.ok().body(apartmentService.updateApartment(apartment, apartment.getId()));
     }
 }

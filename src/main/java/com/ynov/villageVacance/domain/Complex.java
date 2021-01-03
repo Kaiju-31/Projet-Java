@@ -52,6 +52,8 @@ public class Complex {
         CITY
     }
 
+    private String country;
+
     @Enumerated(EnumType.STRING)
     private Location location;
 
@@ -130,5 +132,13 @@ public class Complex {
 
     public void setWifi(Boolean wifi) {
         this.wifi = wifi;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
