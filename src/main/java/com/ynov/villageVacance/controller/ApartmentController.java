@@ -6,11 +6,14 @@
 package com.ynov.villageVacance.controller;
 
 import com.ynov.villageVacance.domain.Apartment;
+import com.ynov.villageVacance.domain.Complex;
 import com.ynov.villageVacance.service.ApartmentService;
+import com.ynov.villageVacance.service.ComplexService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,8 +21,10 @@ import java.util.List;
 public class ApartmentController {
 
     ApartmentService apartmentService;
-    public ApartmentController(ApartmentService apartmentService) {
+    ComplexService complexService;
+    public ApartmentController(ApartmentService apartmentService, ComplexService complexService) {
         this.apartmentService = apartmentService;
+        this.complexService = complexService;
     }
 
     @GetMapping("/apartment")
@@ -52,10 +57,15 @@ public class ApartmentController {
         apartmentService.deleteApartment(id);
     }
 
-//    @GetMapping("/apartment-region")
-//    @ResponseStatus(HttpStatus.OK)
-//    public List<ApartmentDto> findApartmentByRegion(String region) {
-//        return apartmentService.findApartmentByRegion(region);
-//    }
+    @GetMapping("/apartment-region")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Apartment> findApartmentByRegion(String region) {
+        List<Apartment> apartments = new ArrayList<>();
+        List<Complex> complexes = complexService.findApartmentByRegion(region);
+        for (Complex complex : complexes) {
+            apartments.addAll(complex.getApartments());
+        }
+        return apartments;
+    }
 
 }
