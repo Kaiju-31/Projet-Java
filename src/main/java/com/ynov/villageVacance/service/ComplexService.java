@@ -6,6 +6,7 @@
 package com.ynov.villageVacance.service;
 
 import com.ynov.villageVacance.domain.Complex;
+import com.ynov.villageVacance.domain.ComplexDto;
 import com.ynov.villageVacance.repository.ComplexRepository;
 import org.springframework.stereotype.Service;
 
@@ -50,5 +51,9 @@ public class ComplexService {
     public void deleteComplex(Long id) {
         Complex complex = complexRepository.findComplexById(id);
         complexRepository.delete(complex);
+    }
+
+    public List<Complex> findComplexByCountry(String country) {
+        return complexRepository.findComplexByCountry(country);
     }
 }

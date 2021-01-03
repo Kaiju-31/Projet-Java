@@ -52,4 +52,10 @@ public class ApartmentController {
         apartmentService.deleteApartment(id);
     }
 
+//    @GetMapping("/apartment-region")
+//    @ResponseStatus(HttpStatus.OK)
+//    public List<ApartmentDto> findApartmentByRegion(String region) {
+//        return apartmentService.findApartmentByRegion(region);
+//    }
+
 }

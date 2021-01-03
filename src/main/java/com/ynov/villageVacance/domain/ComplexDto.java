@@ -100,7 +100,15 @@ public class ComplexDto {
         this.location = location;
     }
 
-    public ComplexDto(String type, String region, String address, String gps, Boolean swimmingPool, Boolean spa, Boolean nursery, Boolean wifi, Complex.Location location) {
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public ComplexDto(String type, String region, String address, String gps, Boolean swimmingPool, Boolean spa, Boolean nursery, Boolean wifi, Complex.Location location, String country) {
         this.type = type;
         this.region = region;
         this.address = address;
@@ -110,13 +118,7 @@ public class ComplexDto {
         this.nursery = nursery;
         this.wifi = wifi;
         this.location = location;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
         this.country = country;
     }
+
 }

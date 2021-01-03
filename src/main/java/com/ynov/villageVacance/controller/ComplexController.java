@@ -6,6 +6,7 @@
 package com.ynov.villageVacance.controller;
 
 import com.ynov.villageVacance.domain.Complex;
+import com.ynov.villageVacance.domain.ComplexDto;
 import com.ynov.villageVacance.service.ComplexService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,5 +52,11 @@ public class ComplexController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteComplex(@PathVariable Long id) {
         complexService.deleteComplex(id);
+    }
+
+    @GetMapping("/complex-country")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Complex> findComplexByCountry(String country) {
+        return complexService.findComplexByCountry(country);
     }
 }

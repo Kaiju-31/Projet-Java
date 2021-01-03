@@ -47,10 +47,12 @@ public class ApartmentService {
         return apartmentRepository.save(apartment);
     }
 
-
     public void deleteApartment(Long id) {
         Apartment apartment = apartmentRepository.findApartmentById(id);
         apartmentRepository.delete(apartment);
     }
 
+//    public List<ApartmentDto> findApartmentByRegion(String region) {
+//        return apartmentRepository.findApartmentByRegion(region);
+//    }
 }
