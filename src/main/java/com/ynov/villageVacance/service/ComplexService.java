@@ -64,4 +64,8 @@ public class ComplexService {
     public List<Complex> findApartmentByRegion(String region) {
         return complexRepository.findApartmentByRegion(region);
     }
+
+    public List<Complex> findApartmentWithSwimmingpool() {
+        return complexRepository.findApartmentWithSwimmingpool();
+    }
 }

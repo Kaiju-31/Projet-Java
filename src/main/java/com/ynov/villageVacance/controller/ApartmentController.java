@@ -74,4 +74,15 @@ public class ApartmentController {
         return apartments;
     }
 
+    @GetMapping("/apartment-swimmingpool")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Apartment> findApartmentWithSwimmingpool() {
+        List<Apartment> apartments = new ArrayList<>();
+        List<Complex> complexes = complexService.findApartmentWithSwimmingpool();
+        for (Complex complex : complexes) {
+            apartments.addAll(complex.getApartments());
+        }
+        return apartments;
+    }
+
 }
